@@ -1,4 +1,4 @@
-# POSTMAN > HTTP
+# POSTMAN > WEEK 1 - 2
 
 **http://127.0.0.1:8000/posts/users/create/**
 
@@ -8,19 +8,36 @@
 
 ![image](https://github.com/user-attachments/assets/8c96b934-0bdf-4af7-9927-697b05cb3022)
 
-# RUN SERVER
+## RUN SERVER
 
 ![image](https://github.com/user-attachments/assets/8b86620b-028a-4c90-a0a9-23bd81d0f853)
 ![image](https://github.com/user-attachments/assets/580d75b3-fc33-4dba-a0da-b7b493c4d418)
 
-# RUN LOG IN 
+## RUN LOG IN 
 
 ![image](https://github.com/user-attachments/assets/078c9996-d173-458e-b1ca-de213b4ce9f7)
 ![image](https://github.com/user-attachments/assets/2db960c0-1cbc-4e51-a899-288e68bf69c5)
 
-# FILE STRUCTURE
+## FILE STRUCTURE
 
 ![image](https://github.com/user-attachments/assets/c29a4e98-29f1-45fe-a31c-1a0c8e431c0a)
+
+# WEEK 3
+
+![alt text](image.png)
+
+![alt text](image-1.png)
+![alt text](image-2.png)
+
+![alt text](image-3.png)
+![alt text](image-4.png)
+
+
+
+
+
+
+
 
 
 
