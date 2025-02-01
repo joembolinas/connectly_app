@@ -15,10 +15,27 @@ def create_user(request):
     if request.method == 'POST':
         try:
             data = json.loads(request.body)
+
+            # Check if required fields are present
+            if 'username' not in data or 'email' not in data:
+                return JsonResponse({'message': 'Username and email are required'}, status=400)
+
+            # Check if username or email already exists
+            if User.objects.filter(username=data['username']).exists():
+                return JsonResponse({'message': 'Username already exists'}, status=500)
+            if User.objects.filter(email=data['email']).exists():
+                return JsonResponse({'message': 'Email already exists'}, status=500)
+
+            # Create user
             user = User.objects.create(username=data['username'], email=data['email'])
             return JsonResponse({'id': user.id, 'message': 'User created successfully'}, status=201)
+
+        except json.JSONDecodeError:
+            return JsonResponse({'message': 'Invalid JSON data'}, status=400)
         except Exception as e:
-            return JsonResponse({'error': str(e)}, status=400)
+            return JsonResponse({'message': str(e)}, status=500)
+
+    return JsonResponse({'message': 'Invalid request method'}, status=405)
 
 # Retrieve all posts
 def get_posts(request):
