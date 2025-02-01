@@ -48,10 +48,28 @@ def create_post(request):
     if request.method == 'POST':
         try:
             data = json.loads(request.body)
-            author = User.objects.get(id=data['author'])
+
+            # Check if required fields are present
+            if 'author' not in data or 'content' not in data:
+                return JsonResponse({'message': 'Author ID and content are required'}, status=400)
+
+            # Check if content is empty
+            if not data['content'].strip():
+                return JsonResponse({'message': 'Content cannot be empty'}, status=400)
+
+            # Validate author existence
+            try:
+                author = User.objects.get(id=data['author'])
+            except User.DoesNotExist:
+                return JsonResponse({'message': 'Author not found'}, status=404)
+
+            # Create post
             post = Post.objects.create(content=data['content'], author=author)
             return JsonResponse({'id': post.id, 'message': 'Post created successfully'}, status=201)
-        except User.DoesNotExist:
-            return JsonResponse({'error': 'Author not found'}, status=404)
+
+        except json.JSONDecodeError:
+            return JsonResponse({'message': 'Invalid JSON data'}, status=400)
         except Exception as e:
-            return JsonResponse({'error': str(e)}, status=400)
+            return JsonResponse({'message': str(e)}, status=500)
+
+    return JsonResponse({'message': 'Invalid request method'}, status=405)
