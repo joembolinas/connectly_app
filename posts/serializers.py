@@ -34,3 +34,7 @@ class CommentSerializer(serializers.ModelSerializer):
             raise serializers.ValidationError("Author not found.")
         return value
 
+class UserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ['username', 'email']  # Exclude sensitive fields like password
