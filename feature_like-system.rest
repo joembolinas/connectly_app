@@ -1,0 +1,283 @@
+### Create User Endpoint
+POST https://127.0.0.1:8000/posts/users/create/
+Content-Type: application/json
+
+{
+    "username": "new_user3",
+    "email": "new_user2@example.com",
+    "password": "securepassword123"
+}
+
+### User List/Create Endpoint
+GET https://127.0.0.1:8000/posts/users/
+Content-Type: application/json
+
+###
+
+POST https://127.0.0.1:8000/posts/users/
+Content-Type: application/json
+
+{
+    "username": "new_user4",
+    "email": "new_user4@example.com",
+    "password": "securepassword123"
+}
+
+### Post List/Create Endpoint
+GET https://127.0.0.1:8000/posts/posts/
+Content-Type: application/json
+
+###
+
+POST https://127.0.0.1:8000/posts/posts/
+Content-Type: application/json
+
+{
+    "title": "New Post",
+    "content": "This is the content of the new post.",
+    "author": 1
+}
+
+### Update Post Endpoint
+PUT https://127.0.0.1:8000/posts/posts/1/
+Content-Type: application/json
+
+{
+    "title": "Updated Post Title",
+    "content": "This is the updated content of the post.",
+    "author": 1  # Replace with the actual user ID
+}
+
+### Delete Post Endpoint
+DELETE https://127.0.0.1:8000/posts/posts/1/
+Content-Type: application/json
+
+### Comment List/Create Endpoint
+GET https://127.0.0.1:8000/posts/comments/
+Content-Type: application/json
+
+###
+
+POST https://127.0.0.1:8000/posts/comments/
+Content-Type: application/json
+
+{
+    "post": 1,
+    "text": "This is a comment on the post.",
+    "author": 1  # Replace with the actual user ID
+}
+
+### Update Comment Endpoint
+PUT https://127.0.0.1:8000/posts/comments/1/
+Content-Type: application/json
+
+{
+    "post": 1,
+    "text": "This is the updated comment on the post.",
+    "author": 1  # Replace with the actual user ID
+}
+
+### Delete Comment Endpoint
+DELETE https://127.0.0.1:8000/posts/comments/1/
+Content-Type: application/json
+
+### Post Detail Endpoint
+GET https://127.0.0.1:8000/posts/posts/1/
+Content-Type: application/json
+
+### User Detail Endpoint
+GET https://127.0.0.1:8000/posts/users/1/
+Content-Type: application/json
+
+###
+
+PUT https://127.0.0.1:8000/posts/users/1/
+Content-Type: application/json
+
+{
+    "username": "updated_user",
+    "email": "updated_user@example.com",
+    "password": "newsecurepassword123"
+}
+
+### User Login Endpoint
+POST https://127.0.0.1:8000/posts/login/
+Content-Type: application/json
+
+{
+    "username": "new_user3",
+    "password": "securepassword123"
+}
+
+### Like Post Endpoint
+POST https://127.0.0.1:8000/posts/posts/1/like/
+Content-Type: application/json
+
+{
+    "user_id": 1  # Replace with the actual user ID
+}
+
+### Unlike Post Endpoint
+POST https://127.0.0.1:8000/posts/posts/1/unlike/
+Content-Type: application/json
+
+{
+    "user_id": 1  # Replace with the actual user ID
+}
+
+### Get Post Likes Endpoint
+GET https://127.0.0.1:8000/posts/posts/1/likes/
+Content-Type: application/json
+
+
+
+
+### User Login Endpoint
+POST https://127.0.0.1:8000/posts/login/
+Content-Type: application/json
+
+{
+    "username": "new_user3",
+    "password": "securepassword123"
+}
+
+
+
+
+
+
+
+
+### Create User Endpoint
+POST https://127.0.0.1:8000/posts/users/create/
+Content-Type: application/json
+
+{
+    "username": "new_user3",
+    "email": "new_user2@example.com",
+    "password": "securepassword123"
+}
+
+### User List/Create Endpoint
+GET https://127.0.0.1:8000/posts/users/
+Content-Type: application/json
+
+###
+
+POST https://127.0.0.1:8000/posts/users/
+Content-Type: application/json
+
+{
+    "username": "new_user4",
+    "email": "new_user4@example.com",
+    "password": "securepassword123"
+}
+
+### Post List/Create Endpoint
+GET https://127.0.0.1:8000/posts/posts/
+Content-Type: application/json
+
+###
+
+POST https://127.0.0.1:8000/posts/posts/
+Content-Type: application/json
+
+{
+    "title": "New Post",
+    "content": "This is the content of the new post.",
+    "author": 1
+}
+
+### Update Post Endpoint
+PUT https://127.0.0.1:8000/posts/posts/1/
+Content-Type: application/json
+
+{
+    "title": "Updated Post Title",
+    "content": "This is the updated content of the post.",
+    "author": 1  # Replace with the actual user ID
+}
+
+### Delete Post Endpoint
+DELETE https://127.0.0.1:8000/posts/posts/1/
+Content-Type: application/json
+
+### Comment List/Create Endpoint
+GET https://127.0.0.1:8000/posts/comments/
+Content-Type: application/json
+
+###
+
+POST https://127.0.0.1:8000/posts/comments/
+Content-Type: application/json
+
+{
+    "post": 1,
+    "text": "This is a comment on the post.",
+    "author": 1  # Replace with the actual user ID
+}
+
+### Update Comment Endpoint
+PUT https://127.0.0.1:8000/posts/comments/1/
+Content-Type: application/json
+
+{
+    "post": 1,
+    "text": "This is the updated comment on the post.",
+    "author": 1  # Replace with the actual user ID
+}
+
+### Delete Comment Endpoint
+DELETE https://127.0.0.1:8000/posts/comments/1/
+Content-Type: application/json
+
+### Post Detail Endpoint
+GET https://127.0.0.1:8000/posts/posts/1/
+Content-Type: application/json
+
+### User Detail Endpoint
+GET https://127.0.0.1:8000/posts/users/1/
+Content-Type: application/json
+
+###
+
+PUT https://127.0.0.1:8000/posts/users/1/
+Content-Type: application/json
+
+{
+    "username": "updated_user",
+    "email": "updated_user@example.com",
+    "password": "newsecurepassword123"
+}
+
+### User Login Endpoint
+POST https://127.0.0.1:8000/posts/login/
+Content-Type: application/json
+
+{
+    "username": "new_user3",
+    "password": "securepassword123"
+}
+
+### Like Post Endpoint
+POST https://127.0.0.1:8000/posts/posts/1/like/
+Content-Type: application/json
+Authorization: Token <your_token_here>
+
+{
+    "user_id": 1  # Replace with the actual user ID
+}
+
+### Unlike Post Endpoint
+POST https://127.0.0.1:8000/posts/posts/1/unlike/
+Content-Type: application/json
+Authorization: Token <your_token_here>
+
+{
+    "user_id": 1  # Replace with the actual user ID
+}
+
+### Get Post Likes Endpoint
+GET https://127.0.0.1:8000/posts/posts/1/likes/
+Content-Type: application/json
+Authorization: Token <your_token_here>
