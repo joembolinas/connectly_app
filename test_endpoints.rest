@@ -30,6 +30,7 @@ Content-Type: application/json
 
 
 
+
 ### Post List/Create Endpoint
 GET https://127.0.0.1:8000/posts/posts/
 Content-Type: application/json
