@@ -3,7 +3,7 @@ POST https://127.0.0.1:8000/posts/users/create/
 Content-Type: application/json
 
 {
-    "username": "new_user3",
+    "username": "new_user4",
     "email": "new_user2@example.com",
     "password": "securepassword123"
 }
@@ -142,3 +142,19 @@ Content-Type: application/json
     "password": "securepassword123"
 }
 
+
+POST https://127.0.0.1:8000/posts/login/
+Content-Type: application/json
+
+{
+    "username": "new_user2",
+    "password": "securepassword123"
+}
+
+POST https://127.0.0.1:8000/posts/posts/1/
+Content-Type: application/json
+Authorization: Token your_generated_token_here
+
+{
+    "user_id": 1
+}

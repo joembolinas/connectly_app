@@ -296,7 +296,7 @@ Content-Type: application/json
 {
     "post": 1,
     "text": "This is a comment on the post.",
-    "author": 1  # Replace with the actual user ID
+    "author": 3,
 }
 
 ### Update Comment Endpoint
@@ -306,7 +306,7 @@ Content-Type: application/json
 {
     "post": 1,
     "text": "This is the updated comment on the post.",
-    "author": 1  # Replace with the actual user ID
+    "author": 1
 }
 
 ### Delete Comment Endpoint

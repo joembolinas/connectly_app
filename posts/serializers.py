@@ -1,33 +1,22 @@
+# posts/serializers.py
 from rest_framework import serializers
-from .models import Post, Comment
-from django.contrib.auth.models import User
-
-
-class UserSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = User
-        fields = ['id', 'username', 'email', 'created_at']  # Include all necessary fields
-
+from .models import Post
 
 class PostSerializer(serializers.ModelSerializer):
-    comments = serializers.StringRelatedField(many=True, read_only=True)
-
     class Meta:
         model = Post
-        fields = ['id', 'content', 'author', 'created_at', 'comments']
+        fields = '__all__'
+        read_only_fields = ('user', 'created_at')
 
+# posts/views.py
+from rest_framework import viewsets, permissions
+from .models import Post
+from .serializers import PostSerializer
 
-class CommentSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Comment
-        fields = ['id', 'text', 'author', 'post', 'created_at']
+class PostViewSet(viewsets.ModelViewSet):
+    queryset = Post.objects.all()
+    serializer_class = PostSerializer
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
 
-    def validate_post(self, value):
-        if not Post.objects.filter(id=value.id).exists():
-            raise serializers.ValidationError("Post not found.")
-        return value
-
-    def validate_author(self, value):
-        if not User.objects.filter(id=value.id).exists():
-            raise serializers.ValidationError("Author not found.")
-        return value
+    def perform_create(self, serializer):
+        serializer.save(user=self.request.user)
