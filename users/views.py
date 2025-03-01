@@ -16,14 +16,3 @@ class UserProfileView(generics.RetrieveUpdateAPIView):
 
 class CustomTokenObtainPairView(TokenObtainPairView):
     pass
-
-# Example: Restrict post deletion to admins/moderators
-class PostViewSet(viewsets.ModelViewSet):
-    queryset = Post.objects.all()
-    serializer_class = PostSerializer
-    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
-
-    def get_permissions(self):
-        if self.action == 'destroy':
-            return [permissions.IsAuthenticated(), IsModeratorOrAdmin()]
-        return super().get_permissions()
