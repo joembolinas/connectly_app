@@ -1,22 +1,18 @@
-# posts/serializers.py
 from rest_framework import serializers
-from .models import Post
+from .models import Post, Comment
+from users.serializers import UserSerializer
+
+class CommentSerializer(serializers.ModelSerializer):
+    user = UserSerializer(read_only=True)
+
+    class Meta:
+        model = Comment
+        fields = ['id', 'post', 'user', 'text', 'created_at']
 
 class PostSerializer(serializers.ModelSerializer):
+    user = UserSerializer(read_only=True)
+    comments = CommentSerializer(many=True, read_only=True)
+
     class Meta:
         model = Post
-        fields = '__all__'
-        read_only_fields = ('user', 'created_at')
-
-# posts/views.py
-from rest_framework import viewsets, permissions
-from .models import Post
-from .serializers import PostSerializer
-
-class PostViewSet(viewsets.ModelViewSet):
-    queryset = Post.objects.all()
-    serializer_class = PostSerializer
-    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
-
-    def perform_create(self, serializer):
-        serializer.save(user=self.request.user)
+        fields = ['id', 'user', 'content', 'created_at', 'comments']

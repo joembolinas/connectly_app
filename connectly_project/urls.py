@@ -16,19 +16,21 @@ Including another URLconf
 """
 # connectly/urls.py
 from django.urls import path, include
+from django.contrib import admin
 from rest_framework.routers import DefaultRouter
 from users.views import UserRegistrationView, UserProfileView, CustomTokenObtainPairView
 from posts.views import PostViewSet
-from interactions.views import LikeViewSet, CommentViewSet
+
 
 router = DefaultRouter()
 router.register(r'posts', PostViewSet)
-router.register(r'likes', LikeViewSet)
-router.register(r'comments', CommentViewSet)
+
 
 urlpatterns = [
     path('api/auth/register/', UserRegistrationView.as_view(), name='register'),
     path('api/auth/login/', CustomTokenObtainPairView.as_view(), name='login'),
     path('api/auth/profile/', UserProfileView.as_view(), name='profile'),
     path('api/', include(router.urls)),
+    path('admin/', admin.site.urls),
+    path('api-auth/', include('rest_framework.urls')),  # DRF login/logout
 ]

@@ -41,12 +41,16 @@ INSTALLED_APPS = [
     'rest_framework',
     'posts',
     'django_extensions',
-    'rest framework_simplejwt',
+    'rest_framework_simplejwt',
     'allauth',
     'allauth.account',
     'users',
     'interactions',
     'friends',
+    'alluth.socialaccount',
+    'allauth.socialaccount.providers.google',
+    'django.contrib.sites',
+    'rest_framework_simplejwt',
 ]
 
 MIDDLEWARE = [
@@ -152,7 +156,13 @@ REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
         'rest_framework_simplejwt.authentication.JWTAuthentication',
     ],
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticated',
+    ],
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 10,
 }
+
 
 # Media Files
 MEDIA_URL = '/media/'
@@ -171,3 +181,23 @@ CACHES = {
         'LOCATION': 'redis://127.0.0.1:6379',
     }
 }
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',)
+
+SOCIALACCOUNT_PROVIDERS = {
+    'google': {
+        'SCOPE': [
+            'profile',
+            'email',
+        ],
+        'AUTH_PARAMS': {
+            'access_type': 'online',
+        }
+    }
+}
+
+# Security settings
+SECURE_SSL_REDIRECT = True
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
