@@ -45,12 +45,9 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'users',
-    'interactions',
-    'friends',
-    'alluth.socialaccount',
+    'allauth.socialaccount',
     'allauth.socialaccount.providers.google',
     'django.contrib.sites',
-    'rest_framework_simplejwt',
 ]
 
 MIDDLEWARE = [
@@ -61,6 +58,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'allauth.account.middleware.AccountMiddleware',  # Add this line
 ]
 
 ROOT_URLCONF = 'connectly_project.urls'
